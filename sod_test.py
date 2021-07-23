@@ -43,11 +43,9 @@ def ladda_csv(filename):    # Skapar funktionen som hämtar temperaturen kl 15:0
             current_row = row_str.split(';')
             if current_row[0] in datList and current_row[1] == '15:00:00':
                 temper_list.append(current_row[2])
-         
-
-# Anropar funktionen ovan så att lexikonen skapas       
-
-ladda_csv('smhi-opendata_soderhamn_csvfil.csv') # Anropar ladda_csv- funktionen ovan
+           
+# csv-filen kommer härifrån: https://www.smhi.se/data/meteorologi/ladda-ner-meteorologiska-observationer/#param=airtemperatureInstant,stations=all
+ladda_csv('smhi-opendata_1_117160_20210713_103431.csv') # Anropar ladda_csv- funktionen ovan
 tempen = [float(i) for i in temper_list]
 
 xx = range(len(datList))
