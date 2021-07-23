@@ -16,8 +16,7 @@ till2 = till.replace('-',' ')
 fran2 = fran2.split()
 till2 = till2.split()
         
-
-############ Creates a list containing all dates from the (inputed) first date to the (inputed) last date
+############ Skapar lista med alla datum mellan de önskade datumen. Används som x-axel i plotten
 def daterange(date1, date2):
     for n in range(int ((date2 - date1).days)+1):
         yield date1 + timedelta(n)
@@ -33,7 +32,7 @@ for dt in daterange(start_dt, end_dt):
     
 temper_list = []  # lista som temperaturerna läggs in i
     
-def ladda_csv(filename):    # Skapar funktionen
+def ladda_csv(filename):    # Skapar funktionen som hämtar temperaturen kl 15:00
     import csv
     
     with open(filename, 'r') as csvFile: # öppnar filen
@@ -54,7 +53,7 @@ tempen = [float(i) for i in temper_list]
 xx = range(len(datList))
 xx = list(xx)
 plt.plot(xx,tempen)
-plt.xlabel("Dagar")                             # lägger till info till plotten
+plt.xlabel("Dagar")        # lägger till info till plotten
 plt.ylabel("Temperatur [C]") 
 plt.title("Temperatur vid 15:00 mellan " + fran + " och " + till)
 plt.grid()
