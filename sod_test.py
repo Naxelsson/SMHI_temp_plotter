@@ -7,7 +7,7 @@ from datetime import timedelta, date
 
 fran = input("Ange datum du vill läsa från: yyyy-mm-dd ")
 till = input("Ange datum du vill läsa till: yyyy-mm-dd ")
-#fran = "1950-01-01"
+#fran = "1950-01-01" exempel
 #till = "1950-12-31"
     
 fran2 = fran.replace('-',' ')
@@ -17,23 +17,21 @@ fran2 = fran2.split()
 till2 = till2.split()
         
 
-#########################################
+############ Creates a list containing all dates from the (inputed) first date to the (inputed) last date
 def daterange(date1, date2):
     for n in range(int ((date2 - date1).days)+1):
         yield date1 + timedelta(n)
     
 datList = []
-#start_dt = date(2015, 12, 20)
-#end_dt = date(2016, 1, 11)
+
 start_dt = date(int(fran2[0]), int(fran2[1]), int(fran2[2]))
 end_dt = date(int(till2[0]), int(till2[1]), int(till2[2]))
 for dt in daterange(start_dt, end_dt):
     datList.append(dt.strftime("%Y-%m-%d"))
-        #print(dt.strftime("%Y-%m-%d"))
-#print(datList)
+        
 ############
     
-temper_list = []
+temper_list = []  # lista som temperaturerna läggs in i
     
 def ladda_csv(filename):    # Skapar funktionen
     import csv
@@ -49,8 +47,8 @@ def ladda_csv(filename):    # Skapar funktionen
          
 
 # Anropar funktionen ovan så att lexikonen skapas       
-#ladda_csv('testdokumentkod.txt')
-ladda_csv('smhi-opendata_soderhamn_csvfil.csv')
+
+ladda_csv('smhi-opendata_soderhamn_csvfil.csv') # Anropar ladda_csv- funktionen ovan
 tempen = [float(i) for i in temper_list]
 
 xx = range(len(datList))
@@ -63,20 +61,3 @@ plt.grid()
 
 
 plt.show()
-
-
-
-
-        
-        
-        
-
-
-            
-            
-            
-#load_csv('CO2Emissions_filtered.csv')  # Anropar funktionen ovan så att lexikonen skapas
-#ladda_csv('smhi-opendata_soderhamn_csvfil.csv')  # Anropar funktionen ovan så att lexikonen skapas
-
-
-
