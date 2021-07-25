@@ -2,6 +2,8 @@
 import matplotlib.pyplot as plt
 
 from datetime import timedelta, date
+
+# the list with dates are generated using code from:
 # https://www.w3resource.com/python-exercises/date-time-exercise/python-date-time-exercise-50.php
 
 
